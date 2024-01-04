@@ -2,6 +2,7 @@ import { useEffect, useState, useMemo } from 'react'
 import './App.css'
 import { Buffer } from "buffer"
 import Navbar from './components/navbar/Navbar';
+import Hero from './pages/Hero/Hero';
 
 function App() {
   const [productData, setProductData] = useState([]);
@@ -79,6 +80,7 @@ function App() {
     } */}
 
     <Navbar/>
+    <Hero/>
 
     </>
   )

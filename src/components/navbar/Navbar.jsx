@@ -13,9 +13,9 @@ const Navbar = () => {
       <li><a href="#">Home</a></li>
       <li><a href="#">About</a></li>
       <li>
-        <a href="#" className="desktop-item">Dropdown Menu</a>
+        <a href="#" className="desktop-item">Categories</a>
         <input type="checkbox" id="showDrop"/>
-        <label htmlFor="showDrop" className="mobile-item">Dropdown Menu</label>
+        <label htmlFor="showDrop" className="mobile-item">Categories</label>
         <ul className="drop-menu">
           <li><a href="#">Drop menu 1</a></li>
           <li><a href="#">Drop menu 2</a></li>
@@ -62,7 +62,7 @@ const Navbar = () => {
           </div>
         </div>
       </li>
-      <li><a href="#">Feedback</a></li>
+      <li><a href="#">Cart</a></li>
     </ul>
     <label htmlFor="menu-btn" className="btn menu-btn"><i className="fas fa-bars"></i></label>
   </div>
