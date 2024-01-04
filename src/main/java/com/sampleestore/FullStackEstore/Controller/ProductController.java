@@ -22,7 +22,17 @@ public class ProductController {
     }
 
     @GetMapping("/products/{productID}")
-    public Optional<ProductEntity> getProductByID(@PathVariable Integer productID) {
+    public Optional<ProductEntity> getProductByID(@PathVariable(value = "productID") int productID) {
         return productService.getProductByID(productID);
+    }
+
+    @GetMapping("/products/category/{productCategory}")
+    public List<ProductEntity> getProductByCategory(@PathVariable(value = "productCategory") String productCategory) {
+        return productService.filterProductsByCategory(productCategory);
+    }
+
+    @GetMapping("/products/category/{productCategory}/{productSubCategory}")
+    public List<ProductEntity> getProductBySubCategory(@PathVariable(value = "productCategory") String productCategory, @PathVariable(value = "productSubCategory") String productSubCategory) {
+        return productService.filterProductsBySubcategory(productCategory ,productSubCategory);
     }
 }

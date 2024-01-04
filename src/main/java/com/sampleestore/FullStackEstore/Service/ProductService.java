@@ -11,6 +11,6 @@ public interface ProductService {
 
     List<ProductEntity> getAllProduct();
     Optional<ProductEntity> getProductByID(Integer productID);
-//    List<ProductEntity> filterUsingCategory(String productCategory);
-//    List<ProductEntity> filterUsingSubcategory(String productSubcategory);
+    List<ProductEntity> filterProductsByCategory(String productCategory);
+    List<ProductEntity> filterProductsBySubcategory(String productCategory, String productSubcategory);
 }
