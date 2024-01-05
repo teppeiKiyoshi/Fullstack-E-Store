@@ -11,12 +11,18 @@
     margin-top: 70px;
 }
 
+.left, .right {
+    flex: 1;
+    position: relative;
+    
+}
+
 .left {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    padding: 20px;
+    padding: 20px 60px;
 }
 
 .left .main-title {
@@ -35,33 +41,52 @@
     margin: 0;
 }
 
-.left-hero-button {
-    width: 200px;
-    height: auto;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-}
-
-.right {
-    width: 100%;
-    padding: 50px;
-}
-
 .img {
     position: absolute;
-    width: auto;
-    padding: 50px;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%); /* This centers the image */
 }
 
 .hero.img{
-    width: 650px;
+    width: 700px;
 }
 
 .blob.img {
     padding-top: 100px;
-    width: 700px;
-    height: 750px;
+    width: 750px;
+    height: 800px;
 }
+
+.left-hero__button {
+    background-color: #ffffff00;
+    color: #fff;
+    width: 150px;
+    height: 40px;
+    border: #E25E3E 0.2em solid;
+    border-radius: 11px;
+    text-align: right;
+    transition: all 0.6s ease;
+    margin: 20px 10px;
+  }
+  
+  .left-hero__button:hover {
+    background-color: #E25E3E;
+    cursor: pointer;
+  }
+  
+  .left-hero__button svg {
+    width: 20px;
+    position: absolute;
+    display: flex;
+    transition: all 0.6s ease;
+    margin: 0 0 0 20px;
+  }
+  
+  .left-hero__button:hover svg {
+    transform: translateX(5px);
+  }
+  
+  .left-hero__button-text {
+    margin: 0 25px 0 0;
+  }

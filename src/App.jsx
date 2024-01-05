@@ -1,14 +1,14 @@
 import { useEffect, useState, useMemo } from 'react'
 import './App.css'
-import { Buffer } from "buffer"
+// import { Buffer } from "buffer"
 import Navbar from './components/navbar/Navbar';
 import Hero from './pages/Hero/Hero';
+import PromoSection from './components/promo-section/PromoSection';
+import Testimonal from './components/testimonials/Testimonial';
+import Blogs from './components/blog/Blogs';
 
 function App() {
   const [productData, setProductData] = useState([]);
-
-  let username = 'user';
-  let password = 'userPass';
 
   const headers = useMemo(() => new Headers(), []);
 
@@ -81,7 +81,9 @@ function App() {
 
     <Navbar/>
     <Hero/>
-
+    <PromoSection/>
+    <Blogs/>
+    <Testimonal/>
     </>
   )
 }

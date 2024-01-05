@@ -1,7 +1,6 @@
 import blob from "../../assets/blob.png";
 import heroImage from "../../assets/heroImage.png";
 import "./Hero.css";
-import HeroButton from "../../components/buttons/heroButton";
 
 const Hero = () => {
   return (
@@ -10,7 +9,16 @@ const Hero = () => {
         <p className="main-title">Style Unleashed:</p>
         <p className="main-subtitle">Dress to Impress!</p>
         <p className="main-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vel mollitia doloribus error facilis nesciunt ipsam, eos harum obcaecati blanditiis.</p>
-        <button className="left-hero-button">Grab Amazing Deals!</button>
+
+        <button className="left-hero__button">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+          </svg>
+          <div className="left-hero__button-text">
+            Shop now!
+          </div>
+        </button>
+
       </div>
       <div className="right">
 
