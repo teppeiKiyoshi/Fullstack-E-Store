@@ -1,0 +1,7 @@
+.adjustment-container {
+    height: calc(100vh - 70px);
+    margin-top: 70px;
+    overflow: hidden;
+    width: 100vw;
+}
+

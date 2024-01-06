@@ -1,90 +1,81 @@
-import { useEffect, useState, useMemo } from 'react'
+// import { useEffect, useState, useMemo } from 'react'
 import './App.css'
-// import { Buffer } from "buffer"
-import Navbar from './components/navbar/Navbar';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Hero from './pages/Hero/Hero';
-import PromoSection from './components/promo-section/PromoSection';
-import Testimonal from './components/testimonials/Testimonial';
-import Blogs from './components/blog/Blogs';
+import ProductListPage from './pages/PLP/ProductListPage';
+import Navbar from './components/navbar/Navbar';
+import ProductDetail from './pages/PDP/ProductDetail';
+// import { Buffer } from "buffer"
+
 
 function App() {
-  const [productData, setProductData] = useState([]);
+  // const [productData, setProductData] = useState([]);
 
-  const headers = useMemo(() => new Headers(), []);
+  // let username = 'user';
+  // let password = 'userPass';
 
-  headers.set('Authorization', 'Basic ' + Buffer.from(username + ":" + password).toString('base64'));
+  // const headers = useMemo(() => new Headers(), []);
 
-  useEffect(() => {
-    fetch("http://localhost:8080/amaterasu/api/products", {
-      method: "GET",
-      headers: headers,
-    })
-    .then(response => response.json())
-    .then((data) => {
-      setProductData(data);
-    })
-    .catch(err => console.log("ang error ay : " +err));
-  }, [headers])
+  // headers.set('Authorization', 'Basic ' + Buffer.from(username + ":" + password).toString('base64'));
 
-  const filterByCategoryWomanShoes =()=> {
-    fetch("http://localhost:8080/amaterasu/api/products/category/women/shoes", {
-      method: "GET",
-      headers: headers,
-    })
-    .then(response => response.json())
-    .then((data) => {
-      setProductData(data);
-    })
-    .catch(err => console.log("ang error ay : " +err));
-  }
+  // useEffect(() => {
+  //   fetch("http://localhost:8080/amaterasu/api/products", {
+  //     method: "GET",
+  //     headers: headers,
+  //   })
+  //   .then(response => response.json())
+  //   .then((data) => {
+  //     setProductData(data);
+  //   })
+  //   .catch(err => console.log("ang error ay : " +err));
+  // }, [headers])
 
-  const filterByCategoryMenShoes =()=> {
-    fetch("http://localhost:8080/amaterasu/api/products/category/men/shoes", {
-      method: "GET",
-      headers: headers,
-    })
-    .then(response => response.json())
-    .then((data) => {
-      setProductData(data);
-    })
-    .catch(err => console.log("ang error ay : " +err));
-  }
+  // const filterByCategoryWomanShoes =()=> {
+  //   fetch("http://localhost:8080/amaterasu/api/products/category/women/shoes", {
+  //     method: "GET",
+  //     headers: headers,
+  //   })
+  //   .then(response => response.json())
+  //   .then((data) => {
+  //     setProductData(data);
+  //   })
+  //   .catch(err => console.log("ang error ay : " +err));
+  // }
 
-  const getById =()=> {
-    fetch("http://localhost:8080/amaterasu/api/products/4", {
-      method: "GET",
-      headers: headers,
-    })
-    .then(response => response.json())
-    .then((data) => {
-      setProductData(data);
-    })
-    .catch(err => console.log("ang error ay : " +err));
-  }
+  // const filterByCategoryMenShoes =()=> {
+  //   fetch("http://localhost:8080/amaterasu/api/products/category/men/shoes", {
+  //     method: "GET",
+  //     headers: headers,
+  //   })
+  //   .then(response => response.json())
+  //   .then((data) => {
+  //     setProductData(data);
+  //   })
+  //   .catch(err => console.log("ang error ay : " +err));
+  // }
+
+  // const getById =()=> {
+  //   fetch("http://localhost:8080/amaterasu/api/products/4", {
+  //     method: "GET",
+  //     headers: headers,
+  //   })
+  //   .then(response => response.json())
+  //   .then((data) => {
+  //     setProductData(data);
+  //   })
+  //   .catch(err => console.log("ang error ay : " +err));
+  // }
 
   return (
-    <>
-      {/* <button onClick={filterByCategoryWomanShoes}>Women Shoes</button>
-      <button onClick={filterByCategoryMenShoes}>Men Shoes</button>
-      <button onClick={getById}>Men Shoes</button>
-      {productData.length > 1 ? productData.map((item, index) => (
-        <div key={index}>
-          <p>Name: {item.productName}</p>
-          <img src={item.productImage}/>
-        </div>
-      )) : 
-      <div >
-          <p>Name: {productData.productName}</p>
-          <img src={productData.productImage}/>
-        </div>
-    } */}
-
-    <Navbar/>
-    <Hero/>
-    <PromoSection/>
-    <Blogs/>
-    <Testimonal/>
-    </>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Navbar/>}>
+        <Route index element={<Hero/>}/>
+        <Route path='/products' element={<ProductListPage/>} />
+        <Route path='/products/:id' element={<ProductDetail/>} />
+      </Route>
+    </Routes>
+    </BrowserRouter>
   )
 }
 

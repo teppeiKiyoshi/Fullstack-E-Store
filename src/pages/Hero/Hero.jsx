@@ -1,9 +1,15 @@
 import blob from "../../assets/blob.png";
 import heroImage from "../../assets/heroImage.png";
 import "./Hero.css";
+import Navbar from "../../components/navbar/Navbar";
+import PromoSection from '../../components/promo-section/PromoSection';
+import Testimonal from '../../components/testimonials/Testimonial';
+import Blogs from '../../components/blog/Blogs';
 
 const Hero = () => {
   return (
+    <>
+     <Navbar/>
     <div className="left-right-container">
       <div className="left">
         <p className="main-title">Style Unleashed:</p>
@@ -27,6 +33,10 @@ const Hero = () => {
 
       </div>
     </div>
+    <PromoSection/>
+    <Blogs/>
+    <Testimonal/>
+    </>
   );
 };
 

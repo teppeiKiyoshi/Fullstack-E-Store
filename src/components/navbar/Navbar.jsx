@@ -1,16 +1,18 @@
 import './navbar.css'
+import { Outlet } from 'react-router-dom'
 
 const Navbar = () => {
   return (
+    <>
     <nav>
       <div className="wrapper">
-        <div className="logo"><a href="#">Amaterasu</a></div>
+        <div className="logo"><a href="/">Amaterasu</a></div>
         <input type="radio" name="slider" id="menu-btn" />
         <input type="radio" name="slider" id="close-btn" />
         <ul className="nav-links">
           <label htmlFor="close-btn" className="btn close-btn"><i className="fas fa-times"></i></label>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/products">Products</a></li>
           <li>
             <a href="#" className="desktop-item">Categories</a>
             <input type="checkbox" id="showDrop" />
@@ -66,7 +68,8 @@ const Navbar = () => {
         <label htmlFor="menu-btn" className="btn menu-btn"><i className="fas fa-bars"></i></label>
       </div>
     </nav>
-
+    <Outlet/>
+    </>
   )
 }
 

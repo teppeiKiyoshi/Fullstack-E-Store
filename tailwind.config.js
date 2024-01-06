@@ -5,7 +5,17 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        brand: {
+          DEFAULT: '#FF9B50',
+          light: '#FFBB5C',
+          dark: '#E25E3E'
+        }
+      }
+    },
   },
-  plugins: [],
+  plugins: [
+    '@tailwindcss/aspect-ratio',
+  ],
 }
