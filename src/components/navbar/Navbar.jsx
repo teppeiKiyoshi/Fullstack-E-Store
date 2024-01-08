@@ -22,7 +22,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <div className="bg-white z-50">
+      <div className="bg-darker z-50">
         {/* Mobile menu */}
         <Transition.Root show={open} as={Fragment}>
           <Dialog
