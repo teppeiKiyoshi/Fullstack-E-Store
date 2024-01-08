@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { HeartIcon, StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
-import {data} from '../../mockData/data.js';
+// import {data} from '../../mockData/data.js';
 
 const ProductDetail = () => {
   const params = useParams();
@@ -10,6 +10,8 @@ const ProductDetail = () => {
   const [productSizes, setProductSizes] = useState([]);
   const [selectedSize, setSelectedSize] = useState();
   let images = useMemo(()=> new Array, []);
+
+  let data = [];
 
   const [activeImage, setActiveImage] = useState(images[0]);
   
@@ -22,7 +24,7 @@ const ProductDetail = () => {
               images.push(item.image_four);
             }
         })
-    },[productData.productImage, images])
+    },[productData.productImage, images, data])
     
     let username = "user";
   let password = "userPass";

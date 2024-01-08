@@ -5,6 +5,8 @@ import Hero from './pages/Hero/Hero';
 import ProductListPage from './pages/PLP/ProductListPage';
 import Navbar from './components/navbar/Navbar';
 import ProductDetail from './pages/PDP/ProductDetail';
+import NewNav from './components/navbar/NewNav';
+import Landing from './pages/Hero/Landing';
 // import { Buffer } from "buffer"
 
 
@@ -69,8 +71,8 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Navbar/>}>
-        <Route index element={<Hero/>}/>
+      <Route path="/">
+        <Route index element={<Landing/>}/>
         <Route path='/products' element={<ProductListPage/>} />
         <Route path='/products/:id' element={<ProductDetail/>} />
       </Route>
