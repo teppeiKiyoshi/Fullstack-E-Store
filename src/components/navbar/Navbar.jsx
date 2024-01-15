@@ -8,11 +8,8 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import logo from "../../assets/amaterasu.png";
-// import "./navbar.css";
-import '../../pages/Hero/Hero.css'
 
 import { navigation } from "../../mockData/data";
-import Hero from "../../pages/Hero/Hero";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -22,7 +19,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <div className="bg-darker z-50">
+      <div className="bg-brand z-50 overflow-hidden ">
         {/* Mobile menu */}
         <Transition.Root show={open} as={Fragment}>
           <Dialog
@@ -174,29 +171,26 @@ const Navbar = () => {
                         Sign in
                       </a>
                     </div>
-                    <div className="flow-root">
-                      <a
-                        href="#"
-                        className="-m-2 block p-2 font-medium text-white"
-                      >
-                        Create account
-                      </a>
-                    </div>
+                    
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
             </div>
           </Dialog>
         </Transition.Root>
+        {/* END OF MOBILE MENU */}
 
+        {/* START OF FULL WIDTH NAV */}
         <header className="relative bg-transparent z-50">
-          <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
+          <a className="flex h-10 items-center justify-center bg-brand-light px-4 text-sm font-medium text-brand-darker sm:px-6 lg:px-8">
+            <marquee> 
             Get free delivery on orders over $100
-          </p>
+            </marquee>
+          </a>
 
-          <nav aria-label="Top" className="w-full flex items-center space-x-4">
+          <nav aria-label="Top" className="w-full flex items-center">
             <div className=" w-full">
-              <div className="flex h-16 items-center px-4 sm:px-6 lg:px-8 ">
+              <div className="flex h-16 items-center px-4 sm:px-6 lg:px-8 justify-between space-x-4">
                 <button
                   type="button"
                   className="relative rounded-md bg-white p-2 text-gray-400 lg:hidden"
@@ -213,7 +207,7 @@ const Navbar = () => {
                     <span className="sr-only">Amaterasu</span>
                     <img className="h-8 w-auto" src={logo} alt="" />
                   </a>
-                  <span className="flex ml-4 text-sm font-medium text-white hover:text-brand cursor-pointer transition-colors duration-200 ease-out">
+                  <span className="flex ml-4 text-sm font-medium text-white hover:text-brand-light cursor-pointer transition-colors duration-200 ease-out">
                     Amaterasu
                   </span>
                 </div>
@@ -230,7 +224,7 @@ const Navbar = () => {
                                 className={classNames(
                                   open
                                     ? "border-brand-dark text-brand"
-                                    : "border-transparent text-white hover:text-brand",
+                                    : "border-transparent text-white hover:text-brand-light",
                                   "relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out"
                                 )}
                               >
@@ -310,7 +304,7 @@ const Navbar = () => {
                                                 >
                                                   <a
                                                     href={item.href}
-                                                    className="hover:text-gray-800"
+                                                    className="hover:text-brand-light"
                                                   >
                                                     {item.name}
                                                   </a>
@@ -334,36 +328,22 @@ const Navbar = () => {
                       <a
                         key={page.name}
                         href={page.href}
-                        className="flex items-center text-sm font-medium text-white hover:text-brand duration-200 ease-out"
+                        className="flex items-center text-sm font-medium text-white hover:text-brand-light duration-200 ease-out"
                       >
                         {page.name}
                       </a>
                     ))}
                     <a
                       href="/"
-                      className="flex items-center text-sm font-medium text-white hover:text-brand duration-200 ease-out"
+                      className="flex items-center text-sm font-medium text-white hover:text-brand-light duration-200 ease-out"
                     >
                       About
                     </a>
                   </div>
                 </Popover.Group>
 
-                <div className="ml-auto flex items-center">
-                  <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                    <a
-                      href="#"
-                      className="text-sm font-medium text-white hover:text-brand"
-                    >
-                      Sign in
-                    </a>
-                    <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
-                    <a
-                      href="#"
-                      className="text-sm font-medium text-white hover:text-brand"
-                    >
-                      Create account
-                    </a>
-                  </div>
+                <div className="ml-auto flex items-center space-x-4">
+                 
 
                   {/* <div className="hidden lg:ml-8 lg:flex">
                     <a
@@ -383,10 +363,10 @@ const Navbar = () => {
                   </div> */}
 
                   {/* Search */}
-                  <div className="flex lg:ml-6">
+                  <div className="flex">
                     <a
                       href="#"
-                      className="p-2 text-white hover:text-brand"
+                      className="p-2 text-white hover:text-brand-light"
                     >
                       <span className="sr-only">Search</span>
                       <MagnifyingGlassIcon
@@ -400,15 +380,25 @@ const Navbar = () => {
                   <div className="ml-4 flow-root lg:ml-6">
                     <a href="#" className="group -m-2 flex items-center p-2">
                       <ShoppingBagIcon
-                        className="h-6 w-6 flex-shrink-0 text-white group-hover:text-brand"
+                        className="h-6 w-6 flex-shrink-0 text-white group-hover:text-brand-light"
                         aria-hidden="true"
                       />
-                      <span className="ml-2 text-sm font-medium text-white group-hover:text-brand">
+                      <span className="ml-2 text-sm font-medium text-white group-hover:text-brand-light">
                         0
                       </span>
                       <span className="sr-only">items in cart, view bag</span>
                     </a>
                   </div>
+
+                  <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:ml-6">
+                    <a
+                      href="#"
+                      className="text-sm font-medium text-white hover:text-brand-light"
+                    >
+                      Sign in
+                    </a>                  
+                  </div>
+
                 </div>
               </div>
             </div>

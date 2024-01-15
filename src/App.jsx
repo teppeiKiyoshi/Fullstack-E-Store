@@ -1,12 +1,12 @@
 // import { useEffect, useState, useMemo } from 'react'
 import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Hero from './pages/Hero/Hero';
 import ProductListPage from './pages/PLP/ProductListPage';
-import Navbar from './components/navbar/Navbar';
-import ProductDetail from './pages/PDP/ProductDetail';
-import NewNav from './components/navbar/NewNav';
-import Landing from './pages/Hero/Landing';
+import NavigationBar from './components/navbar/Navbar';
+import ProductDetailPage from './pages/PDP/ProductDetail';
+import LandingPage from './pages/Hero/Hero';
+import LoginPage from './pages/Login/Login';
+import RegistrationPage from './pages/Registration/Registration';
 // import { Buffer } from "buffer"
 
 
@@ -71,10 +71,12 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path="/">
-        <Route index element={<Landing/>}/>
+      <Route path="/" element={<NavigationBar/>}>
+        <Route index element={<LandingPage/>}/>
+        <Route path='/signin' element={<LoginPage/>}/>
+        <Route path='/signup' element={<RegistrationPage/>}/>
         <Route path='/products' element={<ProductListPage/>} />
-        <Route path='/products/:id' element={<ProductDetail/>} />
+        <Route path='/products/:id' element={<ProductDetailPage/>} />
       </Route>
     </Routes>
     </BrowserRouter>

@@ -8,15 +8,20 @@ export default {
     extend: {
       colors: {
         brand: {
-          DEFAULT: '#FF9B50',
-          light: '#FFBB5C',
-          dark: '#E25E3E'
+          DEFAULT: '#86A789',
+          light: '#D2E3C8',
+          dark: '#739072',
+          darker: '#4F6F52'
         },
         "darker": '#C63D2F',
+      },
+      height: {
+        "overall-container" : "calc(100vh - 104px)",
       }
     },
   },
   plugins: [
     '@tailwindcss/aspect-ratio',
+    '@tailwindcss/forms'
   ],
 }
